@@ -5,7 +5,7 @@
         Header merge Vary Origin
     </IfModule>
 </FilesMatch>
-DirectoryIndex index.html index.php index.json
+DirectoryIndex index.php index.json index.html 
 RewriteEngine On
 RewriteCond %{HTTPS} on
 RewriteCond %{REQUEST_URI} /+[^\.]+$
