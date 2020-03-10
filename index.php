@@ -1,1 +1,1 @@
-MallZones API
+api.banon.cf
