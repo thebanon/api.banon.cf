@@ -42,7 +42,7 @@ $url = implode('/', $_GET);
 //$ext = pathinfo($url)['extension'];
 
 if($_GET[0] == 'v1') {
-    $crud = ['create', 'read', 'update', 'delete'];
+    $crud = ['do', 'create', 'read', 'update', 'delete'];
     $include = in_array($_GET[1], $crud) ? '../v1/index.php' : '../404.json';
 }
 else { $include = '../404.json'; }
