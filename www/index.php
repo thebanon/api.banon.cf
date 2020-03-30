@@ -34,15 +34,14 @@ else {
 $getz = $_GET[count($_GET)-1];
 $urlvar = explode('?', $getz);
 $_GET[count($_GET)-1] = $urlvar[0];
-$root = $hash = $_GET[0] ? $_GET[0] : 'splash';
 if(count($urlvar) > 1) { parse_str($urlvar[1], $vars); }
-$state = 'https://mallzones.com'.(count($_GET) > 0 ? '/'.implode('/', $_GET) : '').($vars ? '_'.http_build_query($vars) : '');
+//$state = 'https://mallzones.com'.(count($_GET) > 0 ? '/'.implode('/', $_GET) : '').($vars ? '_'.http_build_query($vars) : '');
 if(count($_GET) > 1) { foreach($_GET as $k=>$v) { $k > 0 ? $parts[$k] = $v : null; } }
 $url = implode('/', $_GET);
 //$ext = pathinfo($url)['extension'];
 
 if($_GET[0] == 'v1') {
-    $crud = ['do', 'create', 'read', 'update', 'delete'];
+    $crud = ['do', 'create', 'read', "play", 'update', 'delete'];
     $include = in_array($_GET[1], $crud) ? '../v1/index.php' : '../404.json';
 }
 else { $include = '../404.json'; }
