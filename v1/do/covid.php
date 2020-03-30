@@ -49,7 +49,7 @@ if($type === 'state') {
     $response = $place.' 💉: '.$cases.' ☠️: '.$dead;
 }
 if($type === 'country') {
-    $cases = $results['latest_stat_by_country'][0]['active_cases'];
+    $cases = $results['latest_stat_by_country'][0]['total_cases'];
     $dead = $results['latest_stat_by_country'][0]['total_deaths'];
     $place = $results['latest_stat_by_country'][0]['country_name'];
     $response = $place.' 💉: '.$cases.' ☠️: '.$dead;
