@@ -1,5 +1,4 @@
 <?php
-$response = "Play Fight Now! \\r\\n*README* _read me/fight";
 if($epc>0) {
     if($epc>1) {
         if(in_array($ep[0],array('state','states'))) {
@@ -14,7 +13,8 @@ if($epc>0) {
         if($ep[0] === "") {  }
     }
 } else {
-    $response = file_get_contents(__DIR__ . '/../../docs/'.$_GET[2].'/README');
+    $response  = "Play Fight Now! *README* _read me/fight";
+    $response .= file_get_contents(__DIR__ . '/../../docs/'.$_GET[2].'/README');
 }
 $data["response"] = $response;
 $data["ep"] = $ep;
