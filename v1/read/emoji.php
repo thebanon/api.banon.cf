@@ -4,6 +4,7 @@ $count = count($ep);
 
 $short = $_GET[3];
 $short === "joy" ? $emoji = "😂" : null;
+$short === "finger" ? $emoji = "🖕" : null;
 //$data["GET"] = $emoji;
 $response = '';
 if($count===3 && $ep[2]) { 
