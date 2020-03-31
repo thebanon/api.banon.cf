@@ -9,10 +9,10 @@ if($epc>0) {
         }
         else if(in_array($ep[0],array('country'))) {
             $type = 'country';
-            $url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=".$ep[1];
+            $url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php?country=".$ep[1];
         }
     } else {
-        $url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/usastates.php";        
+        $url = "https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/hopkins_united_states_all_states_latest.php";      
     }
 } else {
 	$type = "world";
