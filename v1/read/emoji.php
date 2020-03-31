@@ -4,19 +4,24 @@ $count = count($ep);
 
 $short = $_GET[3];
 $short === "joy" ? $emoji = "😂" : null;
-$data["GET"] = $emoji;
-
+//$data["GET"] = $emoji;
+$response = '';
 if($count===3 && $ep[2]) { 
 
     $data['int'] = (int)$ep[2];
+    if($data['int']>0) {
     $x=0; while($x < $data['int']) {
-        $data['what'] = $x;
-        $emoji .= $emoji.' ';
+        $response .= $emoji.' ';
         $x++;
     }
+    } else {        
+        $response = $emoji;   
+    }
+} else {
+    $response = $emoji;    
 }
 
-$data["response"] = $emoji;
+$data["response"] = $response;
 $data["endpoint"] = $ep;
 $data["count"] = $count;
 ?>
