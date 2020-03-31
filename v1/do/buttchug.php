@@ -5,6 +5,6 @@ $count = count($ep);
 if($count==2) { $response = "buttchugs ".$ep[1]."!!!"; } 
 else { $response = "chugs booty!!!"; }
 $data["endpoint"] = $ep;
-$data["response"] = $response;
+$data["results"] = $response;
 $data["count"] = $count;
 ?>
