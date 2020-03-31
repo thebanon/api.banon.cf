@@ -1,4 +1,4 @@
 <?php
-$response = ":thinking: :bulb:";
+$response = ":thinking_face: :bulb:";
 $data["response"] = $response;
 ?>
