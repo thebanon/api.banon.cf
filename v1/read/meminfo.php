@@ -10,5 +10,6 @@
   }
   fclose($fh);
 
-  $data["result"] = "$mem kB RAM found";
+
+  $data["results"] = $data["response"] = "$mem kB RAM found";
 ?>
