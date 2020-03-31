@@ -15,6 +15,7 @@ if($epc>0) {
         $url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/usastates.php";        
     }
 } else {
+	$type = "world";
     $url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php";
 }
 
@@ -51,6 +52,11 @@ if($type === 'country') {
     $dead = $results['latest_stat_by_country'][0]['total_deaths'];
     $place = $results['latest_stat_by_country'][0]['country_name'];
     $response = $place.': 💉'.$cases.' ☠️'.$dead;
+}
+if($type === 'world') {
+    $cases = $results['total_cases'];
+    $dead = $results['total_deaths'];
+    $response = 'world: 💉'.$cases.' ☠️'.$dead;
 }
 
 if ($err) {
