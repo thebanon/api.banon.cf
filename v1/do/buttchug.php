@@ -1,4 +1,3 @@
-//REQUESTED by @tech
 <?php
 $ep = array_slice($_GET,2);
 $count = count($ep);
