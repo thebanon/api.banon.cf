@@ -1,4 +1,5 @@
 <?php
+$response = '';
 if($epc>0) {
     if($epc>1) {
         if(in_array($ep[0],array('state','states'))) {
