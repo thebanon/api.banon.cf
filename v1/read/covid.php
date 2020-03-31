@@ -1,8 +1,8 @@
 <?php
 $curl = curl_init();
 $type = '';
-if($count>0) {
-    if($count>1) {
+if($epc>0) {
+    if($epc>1) {
         if(in_array($ep[0],array('state','states'))) {
             $type = 'state';
             $url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/johns_hopkins_united_states_latest.php?state=".$ep[1];
@@ -59,6 +59,6 @@ if ($err) {
     $data["endpoint"] = $ep;
     $data["response"] = $response;
     $data["results"] = $results;
-    $data["count"] = $count;
+    $data["count"] = $epc;
 }
 ?>
