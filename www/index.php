@@ -40,6 +40,7 @@ if(count($_GET) > 1) { foreach($_GET as $k=>$v) { $k > 0 ? $parts[$k] = $v : nul
 $url = implode('/', $_GET);
 //$ext = pathinfo($url)['extension'];
 
+$ep = array_slice($_GET,3); $epc = count($ep);
 if($_GET[0] == 'v1') {
     $crud = ['do', 'create', 'read', "play", 'update', 'delete'];
     $include = in_array($_GET[1], $crud) ? '../v1/index.php' : '../404.json';

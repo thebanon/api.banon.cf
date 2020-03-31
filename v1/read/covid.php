@@ -1,7 +1,5 @@
 <?php
 $curl = curl_init();
-$ep = array_slice($_GET,3);
-$count = count($ep);
 $type = '';
 if($count>0) {
     if($count>1) {
