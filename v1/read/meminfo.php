@@ -12,7 +12,7 @@
 
 
   $data["results"] = $data["response"] = $mem." kB RAM found";
-  $data["formatted"] = formatBytes(62914752,2);
+  $data["formatted"] = findBytes(62914752,2);
 
   function findBytes($bytes, $to, $decimal_places = 1) {
       $formulas = array(
