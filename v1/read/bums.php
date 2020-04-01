@@ -45,19 +45,20 @@ $results = json_decode(curl_exec($curl),true);
 if($type == 'county') {
     $data["CountyList"] = $results['CountyList'];
     $x=0; foreach($data['CountyList'] as $county) {
-    	$AreaName = $data['CountyList'][$x]['AreaName'];
-    	$UnEmpCount = $data['CountyList'][$x]['UnEmpCount'];
-    	$UnEmpRate = $data['CountyList'][$x]['UnEmpRate'];
-    	$data['counties'][$x] = $AreaName.' :busts_in_silhouette: '.$UnEmpCount.' ('.$UnEmpRate.'%)';
+    	//$data['AreaName'] = $data['CountyList'][$x]['AreaName'];
+    	$data['UnEmpCount'] = $UnEmpCount = $data['CountyList'][$x]['UnEmpCount'];
+    	$data['UnEmpRate'] = $UnEmpRate = $data['CountyList'][$x]['UnEmpRate'];
+    	//$data['county'][$AreaName];
+    	$data['counties'][$x] = $county['AreaName'].' :busts_in_silhouette: '.$UnEmpCount.' ('.$UnEmpRate.'%)';
+    	$data['ep1'] = $ep[1];
+        if($county['AreaName'] === urldecode($ep[2])) { $data['response'] = "*BROKE* *MOFOS* @ ".$county['AreaName'].':'.' :busts_in_silhouette: '.$UnEmpCount.' ('.$UnEmpRate.'%)'; }
     	$x++;
     }
-    $data['response'] = "*BROKE* *MOFOS* : ".json_encode($data['counties']);
 }
 
 $err = curl_error($curl);
 
 curl_close($curl);
-
 
 if ($err) {
     $data['error'] = $err;
