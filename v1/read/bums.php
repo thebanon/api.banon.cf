@@ -46,8 +46,8 @@ if($type == 'county') {
     $data["CountyList"] = $results['CountyList'];
     $x=0; foreach($data['CountyList'] as $county) {
     	//$data['AreaName'] = $data['CountyList'][$x]['AreaName'];
-    	$data['UnEmpCount'] = $UnEmpCount = $data['CountyList'][$x]['UnEmpCount'];
-    	$data['UnEmpRate'] = $UnEmpRate = $data['CountyList'][$x]['UnEmpRate'];
+    	//$data['UnEmpCount'] = $UnEmpCount = $data['CountyList'][$x]['UnEmpCount'];
+    	//$data['UnEmpRate'] = $UnEmpRate = $data['CountyList'][$x]['UnEmpRate'];
     	//$data['county'][$AreaName];
     	$data['counties'][$x] = $county['AreaName'].' :busts_in_silhouette: '.$UnEmpCount.' ('.$UnEmpRate.'%)';
     	$data['ep1'] = $ep[1];
