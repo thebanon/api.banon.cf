@@ -1,0 +1,80 @@
+<?php
+$id = "5gOFbstV4tFiWIi";
+$token = "EmxJYD/zoqhS7Kkco8nXzEXPmTVWp7zYqGL8jmVik2dY4t9kyA/b6CW3eG8uEtJLjDRk2epG06cI11HCZlAWqQ==";
+$headers = array(
+		"Authorization: Bearer $token",
+		"Content-Type: application/json"
+);
+$response = '';
+
+$curl = curl_init();
+$type = "all";
+$url = 'https://api.careeronestop.org/v1/unemployment/'.$id.'/0/state/';
+if($epc>0) {
+    if($epc>1) {
+		if(in_array($ep[1],array('state'))) {
+			$type = 'state';
+			$url = 'https://api.careeronestop.org/v1/unemployment/'.$token.'/'.$ep[0].'/'.$ep[1];
+		}
+		else if(in_array($ep[1],array('county'))) {
+			$type = 'county';
+			$url = 'https://api.careeronestop.org/v1/unemployment/'.$id.'/'.$ep[0].'/'.$ep[1];
+		}
+		else {
+    	    $type = "state";
+            $url = 'https://api.careeronestop.org/v1/unemployment/'.$id.'/0/state/';			
+		}
+    } 
+    else if($epc === 2) {
+    	$type = "state";
+        $url = 'https://api.careeronestop.org/v1/unemployment/'.$id.'/0/state/';
+    }
+}
+
+
+curl_setopt_array($curl, array(
+	CURLOPT_URL => $url,
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "GET",
+	CURLOPT_HTTPHEADER => $headers
+));
+
+$results = json_decode(curl_exec($curl),true);
+//$data["results"] = $results;
+if($type == 'county') {
+    $data["CountyList"] = $results['CountyList'];
+    $x=0; foreach($data['CountyList'] as $county) {
+    	$AreaName = $data['CountyList'][$x]['AreaName'];
+    	$UnEmpCount = $data['CountyList'][$x]['UnEmpCount'];
+    	$UnEmpRate = $data['CountyList'][$x]['UnEmpRate'];
+    	$data['counties'][$x] = $AreaName.' :busts_in_silhouette: '.$UnEmpCount.' ('.$UnEmpRate.'%)';
+    	$x++;
+    }
+    $data['response'] = "*BROKE* *MOFOS* : ".json_encode($data['counties']);
+}
+
+$err = curl_error($curl);
+
+curl_close($curl);
+
+
+if ($err) {
+    $data['error'] = $err;
+} else {
+    $data["ep"] = $ep;
+    $data["epc"] = $epc;
+    //$data["StateList"] = $results['StateList'];
+    $data["url"] = $url;
+}
+function search($v,$array) {
+	$item = null;
+	$data['array'] = $array;
+	foreach($array as $struct) {
+		if ($v == $struct[$v]) {
+			$item = $struct;
+			break;
+		}
+	}
+}
+?>
