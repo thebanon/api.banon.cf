@@ -1,10 +1,10 @@
-<FilesMatch "\.(ttf|otf|eot|woff|woff2)$">
-    <IfModule mod_headers.c>
-        SetEnvIf Origin "http(s)?://(www\.)?(api.banon.cf|api.chree.ga|banon.netlify.com)$" AccessControlAllowOrigin=$0
-        Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
-        Header merge Vary Origin
-    </IfModule>
-</FilesMatch>
+#<FilesMatch "\.(ttf|otf|eot|woff|woff2)$">
+#    <IfModule mod_headers.c>
+#        SetEnvIf Origin "http(s)?://(www\.)?(api.banon.cf|api.chree.ga|banon.netlify.com)$" AccessControlAllowOrigin=$0
+#        Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+#        Header merge Vary Origin
+#    </IfModule>
+#</FilesMatch>
 DirectoryIndex index.php index.json index.html 
 RewriteEngine On
 RewriteCond %{HTTPS} on
