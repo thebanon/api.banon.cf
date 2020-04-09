@@ -68,7 +68,7 @@ if ($err) {
     $data["type"] = $type;
     $data["results"] = $results;
     $data["count"] = $epc;
-    $data["get"] = $get;
+    $data["get"] = $_GET;
     $data["epc"] = $epc;
 }
 ?>
