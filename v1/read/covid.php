@@ -1,8 +1,8 @@
 <?php
 $curl = curl_init();
 $type = '';
-if($epc>0) {
-    if($epc===2) {
+if($query>0) {
+    if($query===2) {
         if(in_array($ep[0],array('state','states'))) {
             $type = 'state';
             $url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/johns_hopkins_latest_usa_statistic_by_state.php?state=".$ep[1];
@@ -12,7 +12,7 @@ if($epc>0) {
             $url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php?country=".$ep[1];
         }
     }
-    else if($epc===1) {
+    else if($query===1) {
         $url = "https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/hopkins_united_states_all_states_latest.php";      
     }
 } else {
@@ -67,8 +67,8 @@ if ($err) {
     $data["response"] = $response;
     $data["type"] = $type;
     $data["results"] = $results;
-    $data["count"] = $epc;
+    $data["count"] = $query;
     $data["get"] = $_GET;
-    $data["epc"] = $epc;
+    $data["epc"] = $query;
 }
 ?>
