@@ -1,1 +1,3 @@
-<?php $data["response"] = "200"; ?>
+<?php 
+    $data["response"] = "200"; 
+?>
