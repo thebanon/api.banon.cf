@@ -7,7 +7,6 @@ $headers = array(
 );
 $response = '';
 
-$curl = curl_init();
 $type = "all";
 $url = 'https://api.careeronestop.org/v1/unemployment/'.$id.'/0/state/';
 if($epc>0) {
@@ -32,6 +31,7 @@ if($epc>0) {
 }
 
 
+$curl = curl_init();
 curl_setopt_array($curl, array(
 	CURLOPT_URL => $url,
 	CURLOPT_RETURNTRANSFER => true,
